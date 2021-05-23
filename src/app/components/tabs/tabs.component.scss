@@ -1,0 +1,27 @@
+.tabSection {
+    padding: 3rem;
+
+    .newTabForm {
+
+        .tabForm {
+            display: flex;
+        }
+    }
+
+    .mat-tab-link {
+        background: #d1b3ff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .closeIcon {
+            margin-top: 10px;
+        }
+    }
+
+    .noTabs {
+        display: flex;
+        padding: 2rem;
+        justify-content: center;
+    }
+}

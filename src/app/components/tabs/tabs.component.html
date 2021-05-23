@@ -1,0 +1,36 @@
+<div class="tabSection">
+
+    <div class="newTabForm">
+        <mat-form-field style="width:20%">
+            <div class="tabForm">
+                <div>
+                    <mat-label>Enter Tab Name</mat-label>
+                    <input matInput [(ngModel)]="tabTitle">
+                </div>
+
+                <div> <button mat-raised-button class="example-add-tab-button" (click)="addTab()">Add new tab</button>
+                </div>
+            </div>
+        </mat-form-field>
+    </div>
+
+
+    <nav mat-tab-nav-bar>
+        <a *ngFor="let tab of getTabData ? getTabData : tabs ; let index = index" mat-tab-link
+            routerLink="{{tab.path + (index+1)}}" routerLinkActive #selectedTab="routerLinkActive"
+            [active]="selectedTab.isActive">
+
+            <span>{{tab.label}}</span> <span class="closeIcon" (click)="removeTab(index)">
+                <mat-icon aria-hidden="false" aria-label="Example close icon">close</mat-icon>
+            </span>
+        </a>
+    </nav>
+
+    <div *ngIf="getTabData ? getTabData.length > 0 : tabs.length > 0">
+        <app-tab-content></app-tab-content>
+    </div>
+
+    <div class="noTabs" *ngIf="getTabData ? getTabData.length == 0 : tabs.length == 0">
+        <h1>Please Add New Tab</h1>
+    </div>
+</div>
